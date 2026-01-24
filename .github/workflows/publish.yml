@@ -60,7 +60,7 @@ jobs:
         working-directory: scribex-editor
         run: |
           npm version patch -m "chore: bump version to %s [skip ci]"
-          npm publish --access public --provenance
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
