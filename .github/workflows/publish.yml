@@ -43,7 +43,26 @@ jobs:
 
       - name: Bump Version and Publish
         run: |
-          npm version patch -m "chore: bump version to %s [skip ci]"
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+
+          # Get latest published version from npm (returns empty if not published)
+          NPM_VERSION=$(npm view "$PACKAGE_NAME" version 2>/dev/null || echo "0.0.0")
+
+          echo "Local version: $LOCAL_VERSION"
+          echo "NPM version: $NPM_VERSION"
+
+          # Compare and bump if needed
+          if [ "$(npx semver "$LOCAL_VERSION" -r "<=$NPM_VERSION")" ]; then
+            # Local version is <= npm version, need to bump
+            NEW_VERSION=$(npx semver "$NPM_VERSION" -i patch)
+            echo "Bumping to next available version: $NEW_VERSION"
+            npm version "$NEW_VERSION" -m "chore: bump version to %s [skip ci]" --allow-same-version
+          else
+            echo "Local version $LOCAL_VERSION is ahead of npm, using it"
+            npm version "$LOCAL_VERSION" -m "chore: bump version to %s [skip ci]" --allow-same-version
+          fi
+
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
