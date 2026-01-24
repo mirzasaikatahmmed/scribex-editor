@@ -1,0 +1,83 @@
+{
+  "name": "scribex-editor",
+  "version": "1.0.0",
+  "description": "A modern, feature-rich WYSIWYG editor for React built on TipTap and shadcn/ui",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "editor",
+    "tiptap",
+    "wysiwyg",
+    "rich-text",
+    "shadcn",
+    "tailwindcss",
+    "scribex"
+  ],
+  "author": {
+    "name": "Mirza Saikat Ahmmed",
+    "email": "contact@saikat.com.bd",
+    "url": "https://saikat.com.bd"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mirzasaikatahmmed/scribex-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mirzasaikatahmmed/scribex-editor/issues"
+  },
+  "homepage": "https://github.com/mirzasaikatahmmed/scribex-editor#readme",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.15",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@tiptap/extension-document": "^3.13.0",
+    "@tiptap/extension-hard-break": "^3.13.0",
+    "@tiptap/extension-list": "^3.13.0",
+    "@tiptap/extension-paragraph": "^3.13.0",
+    "@tiptap/extension-text": "^3.13.0",
+    "@tiptap/extension-text-style": "^3.13.0",
+    "@tiptap/extensions": "^3.13.0",
+    "@tiptap/react": "^3.13.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.562.0",
+    "reactjs-tiptap-editor": "^1.0.17",
+    "tailwind-merge": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "tsup": "^8.0.0",
+    "typescript": "^5"
+  }
+}
