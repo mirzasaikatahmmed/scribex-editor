@@ -4,6 +4,10 @@ export {
   type ScribexEditorProps,
 } from './components/ScribexEditor';
 
+// Quill-based Rich Text Editor
+export { default as RichTextEditor, type RichTextEditorProps } from './components/RichTextEditor';
+export { default as EditorPreview, type EditorPreviewProps } from './components/EditorPreview';
+
 // Theme Provider
 export {
   ScribexThemeProvider,
