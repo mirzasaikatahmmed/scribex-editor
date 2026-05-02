@@ -59,13 +59,12 @@ jobs:
             echo "Local version $LOCAL_VERSION is ahead of npm, using it"
           fi
 
-          # Update package.json/package-lock.json without any git operations
-          npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version
+          # npm ci can rewrite package-lock.json (lockfile format upgrade), making
+          # the tree dirty. Reset tracked files before npm version checks git status.
+          # Build output is gitignored so this is safe.
+          git checkout -- .
 
-          # Commit only the version files and tag manually
-          git add package.json package-lock.json
-          git commit -m "chore: bump version to $NEW_VERSION [skip ci]"
-          git tag "v$NEW_VERSION"
+          npm version "$NEW_VERSION" -m "chore: bump version to %s [skip ci]" --allow-same-version
 
           npm publish --access public
         env:
