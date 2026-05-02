@@ -46,22 +46,26 @@ jobs:
           PACKAGE_NAME=$(node -p "require('./package.json').name")
           LOCAL_VERSION=$(node -p "require('./package.json').version")
 
-          # Get latest published version from npm (returns empty if not published)
           NPM_VERSION=$(npm view "$PACKAGE_NAME" version 2>/dev/null || echo "0.0.0")
 
           echo "Local version: $LOCAL_VERSION"
           echo "NPM version: $NPM_VERSION"
 
-          # Compare and bump if needed
           if [ "$(npx semver "$LOCAL_VERSION" -r "<=$NPM_VERSION")" ]; then
-            # Local version is <= npm version, need to bump
             NEW_VERSION=$(npx semver "$NPM_VERSION" -i patch)
             echo "Bumping to next available version: $NEW_VERSION"
-            npm version "$NEW_VERSION" -m "chore: bump version to %s [skip ci]" --allow-same-version
           else
+            NEW_VERSION="$LOCAL_VERSION"
             echo "Local version $LOCAL_VERSION is ahead of npm, using it"
-            npm version "$LOCAL_VERSION" -m "chore: bump version to %s [skip ci]" --allow-same-version
           fi
+
+          # Update package.json/package-lock.json without any git operations
+          npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version
+
+          # Commit only the version files and tag manually
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to $NEW_VERSION [skip ci]"
+          git tag "v$NEW_VERSION"
 
           npm publish --access public
         env:
