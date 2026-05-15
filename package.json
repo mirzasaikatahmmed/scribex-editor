@@ -1,6 +1,6 @@
 {
   "name": "scribex-editor",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "A modern, feature-rich WYSIWYG editor for React built on TipTap and shadcn/ui",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
