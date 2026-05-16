@@ -39,11 +39,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Configure Git User
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Bump Version and Publish
         run: |
           PACKAGE_NAME=$(node -p "require('./package.json').name")
@@ -68,20 +63,11 @@ jobs:
           done
 
           NEW_VERSION="$CANDIDATE"
-          echo "Bumping to next available version: $NEW_VERSION"
+          echo "Publishing version: $NEW_VERSION"
 
-          # npm ci can rewrite package-lock.json (lockfile format upgrade), making
-          # the tree dirty. Reset tracked files before npm version checks git status.
-          # Build output is gitignored so this is safe.
-          git checkout -- .
-
-          npm version "$NEW_VERSION" -m "chore: bump version to %s [skip ci]" --allow-same-version
+          # Set version without creating a git commit (branch is protected)
+          npm version "$NEW_VERSION" --no-git-tag-version
 
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Push Version Bump
-        run: |
-          git push origin HEAD:master
-          git push --tags
