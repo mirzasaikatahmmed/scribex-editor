@@ -12,6 +12,14 @@ Thanks to everyone who has contributed to Scribex Editor!
 
 ---
 
+## Contributors
+
+| Name | GitHub |
+|------|--------|
+| Masud Parvez | [@masudparvez00019](https://github.com/masudparvez00019) |
+
+---
+
 ## How to Get Listed Here
 
 1. Fork the repo
