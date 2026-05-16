@@ -1,0 +1,402 @@
+{
+  "timestamp": "2026-05-16T19:26:17.768Z",
+  "passed": true,
+  "secrets": [],
+  "vulnerabilities": {
+    "total": 18,
+    "critical": 0,
+    "high": 3,
+    "moderate": 13,
+    "low": 2,
+    "info": 0,
+    "packages": [
+      {
+        "name": "@chevrotain/cst-dts-gen",
+        "severity": "moderate",
+        "via": [
+          "@chevrotain/gast",
+          "lodash-es"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@chevrotain/gast",
+        "severity": "moderate",
+        "via": [
+          "lodash-es"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@excalidraw/excalidraw",
+        "severity": "moderate",
+        "via": [
+          "@excalidraw/mermaid-to-excalidraw",
+          "nanoid"
+        ],
+        "fixAvailable": {
+          "name": "reactjs-tiptap-editor",
+          "version": "0.3.5",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@excalidraw/mermaid-to-excalidraw",
+        "severity": "moderate",
+        "via": [
+          "@mermaid-js/parser",
+          "nanoid"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "@mermaid-js/parser",
+        "severity": "moderate",
+        "via": [
+          "langium"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "chevrotain",
+        "severity": "moderate",
+        "via": [
+          "@chevrotain/cst-dts-gen",
+          "@chevrotain/gast",
+          "lodash-es"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "dompurify",
+        "severity": "moderate",
+        "via": [
+          "DOMPurify contains a Cross-site Scripting vulnerability",
+          "DOMPurify ADD_ATTR predicate skips URI validation",
+          "DOMPurify USE_PROFILES prototype pollution allows event handlers",
+          "DOMPurify's ADD_TAGS function form bypasses FORBID_TAGS due to short-circuit evaluation",
+          "DOMPurify: FORBID_TAGS bypassed by function-based ADD_TAGS predicate (asymmetry with FORBID_ATTR fix)",
+          "DOMPurify has a SAFE_FOR_TEMPLATES bypass in RETURN_DOM mode",
+          "DOMPurify: Prototype Pollution to XSS Bypass via CUSTOM_ELEMENT_HANDLING Fallback",
+          "DOMPurify is vulnerable to mutation-XSS via Re-Contextualization "
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "langium",
+        "severity": "moderate",
+        "via": [
+          "chevrotain"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "lodash-es",
+        "severity": "high",
+        "via": [
+          "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+          "lodash vulnerable to Code Injection via `_.template` imports key names",
+          "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "mermaid",
+        "severity": "moderate",
+        "via": [
+          "@mermaid-js/parser",
+          "Mermaid Gantt Charts are vulnerable to an Infinite Loop DoS",
+          "Mermaid: Improper sanitization of `classDefs` in diagrams leads to CSS injection",
+          "Mermaid: Improper sanitization of configuration leads to CSS injection",
+          "Mermaid: Improper sanitization of `classDef` in state diagrams leads to HTML injection"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "nanoid",
+        "severity": "moderate",
+        "via": [
+          "Predictable results in nanoid generation when given non-integer values",
+          "Predictable results in nanoid generation when given non-integer values"
+        ],
+        "fixAvailable": {
+          "name": "reactjs-tiptap-editor",
+          "version": "0.3.5",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "picomatch",
+        "severity": "high",
+        "via": [
+          "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+          "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+          "Picomatch has a ReDoS vulnerability via extglob quantifiers",
+          "Picomatch has a ReDoS vulnerability via extglob quantifiers"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "postcss",
+        "severity": "moderate",
+        "via": [
+          "PostCSS has XSS via Unescaped </style> in its CSS Stringify Output"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "quill",
+        "severity": "low",
+        "via": [
+          "Quill is vulnerable to XSS via HTML export feature"
+        ],
+        "fixAvailable": {
+          "name": "react-quill-new",
+          "version": "3.7.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "react-quill-new",
+        "severity": "low",
+        "via": [
+          "quill"
+        ],
+        "fixAvailable": {
+          "name": "react-quill-new",
+          "version": "3.7.0",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "reactjs-tiptap-editor",
+        "severity": "moderate",
+        "via": [
+          "@excalidraw/excalidraw"
+        ],
+        "fixAvailable": {
+          "name": "reactjs-tiptap-editor",
+          "version": "0.3.5",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "rollup",
+        "severity": "high",
+        "via": [
+          "Rollup 4 has Arbitrary File Write via Path Traversal"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "uuid",
+        "severity": "moderate",
+        "via": [
+          "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided"
+        ],
+        "fixAvailable": true
+      }
+    ],
+    "languages": [
+      {
+        "language": "Node.js",
+        "icon": "🟢",
+        "detected": true,
+        "toolAvailable": true,
+        "total": 18,
+        "critical": 0,
+        "high": 3,
+        "moderate": 13,
+        "low": 2,
+        "packages": [
+          {
+            "name": "@chevrotain/cst-dts-gen",
+            "severity": "moderate",
+            "via": [
+              "@chevrotain/gast",
+              "lodash-es"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "@chevrotain/gast",
+            "severity": "moderate",
+            "via": [
+              "lodash-es"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "@excalidraw/excalidraw",
+            "severity": "moderate",
+            "via": [
+              "@excalidraw/mermaid-to-excalidraw",
+              "nanoid"
+            ],
+            "fixAvailable": {
+              "name": "reactjs-tiptap-editor",
+              "version": "0.3.5",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "@excalidraw/mermaid-to-excalidraw",
+            "severity": "moderate",
+            "via": [
+              "@mermaid-js/parser",
+              "nanoid"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "@mermaid-js/parser",
+            "severity": "moderate",
+            "via": [
+              "langium"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "chevrotain",
+            "severity": "moderate",
+            "via": [
+              "@chevrotain/cst-dts-gen",
+              "@chevrotain/gast",
+              "lodash-es"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "dompurify",
+            "severity": "moderate",
+            "via": [
+              "DOMPurify contains a Cross-site Scripting vulnerability",
+              "DOMPurify ADD_ATTR predicate skips URI validation",
+              "DOMPurify USE_PROFILES prototype pollution allows event handlers",
+              "DOMPurify's ADD_TAGS function form bypasses FORBID_TAGS due to short-circuit evaluation",
+              "DOMPurify: FORBID_TAGS bypassed by function-based ADD_TAGS predicate (asymmetry with FORBID_ATTR fix)",
+              "DOMPurify has a SAFE_FOR_TEMPLATES bypass in RETURN_DOM mode",
+              "DOMPurify: Prototype Pollution to XSS Bypass via CUSTOM_ELEMENT_HANDLING Fallback",
+              "DOMPurify is vulnerable to mutation-XSS via Re-Contextualization "
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "langium",
+            "severity": "moderate",
+            "via": [
+              "chevrotain"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "lodash-es",
+            "severity": "high",
+            "via": [
+              "Lodash has Prototype Pollution Vulnerability in `_.unset` and `_.omit` functions",
+              "lodash vulnerable to Code Injection via `_.template` imports key names",
+              "lodash vulnerable to Prototype Pollution via array path bypass in `_.unset` and `_.omit`"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "mermaid",
+            "severity": "moderate",
+            "via": [
+              "@mermaid-js/parser",
+              "Mermaid Gantt Charts are vulnerable to an Infinite Loop DoS",
+              "Mermaid: Improper sanitization of `classDefs` in diagrams leads to CSS injection",
+              "Mermaid: Improper sanitization of configuration leads to CSS injection",
+              "Mermaid: Improper sanitization of `classDef` in state diagrams leads to HTML injection"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "nanoid",
+            "severity": "moderate",
+            "via": [
+              "Predictable results in nanoid generation when given non-integer values",
+              "Predictable results in nanoid generation when given non-integer values"
+            ],
+            "fixAvailable": {
+              "name": "reactjs-tiptap-editor",
+              "version": "0.3.5",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "picomatch",
+            "severity": "high",
+            "via": [
+              "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+              "Picomatch: Method Injection in POSIX Character Classes causes incorrect Glob Matching",
+              "Picomatch has a ReDoS vulnerability via extglob quantifiers",
+              "Picomatch has a ReDoS vulnerability via extglob quantifiers"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "postcss",
+            "severity": "moderate",
+            "via": [
+              "PostCSS has XSS via Unescaped </style> in its CSS Stringify Output"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "quill",
+            "severity": "low",
+            "via": [
+              "Quill is vulnerable to XSS via HTML export feature"
+            ],
+            "fixAvailable": {
+              "name": "react-quill-new",
+              "version": "3.7.0",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "react-quill-new",
+            "severity": "low",
+            "via": [
+              "quill"
+            ],
+            "fixAvailable": {
+              "name": "react-quill-new",
+              "version": "3.7.0",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "reactjs-tiptap-editor",
+            "severity": "moderate",
+            "via": [
+              "@excalidraw/excalidraw"
+            ],
+            "fixAvailable": {
+              "name": "reactjs-tiptap-editor",
+              "version": "0.3.5",
+              "isSemVerMajor": true
+            }
+          },
+          {
+            "name": "rollup",
+            "severity": "high",
+            "via": [
+              "Rollup 4 has Arbitrary File Write via Path Traversal"
+            ],
+            "fixAvailable": true
+          },
+          {
+            "name": "uuid",
+            "severity": "moderate",
+            "via": [
+              "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided"
+            ],
+            "fixAvailable": true
+          }
+        ]
+      }
+    ]
+  }
+}
